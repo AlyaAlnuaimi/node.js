@@ -1,0 +1,17 @@
+{
+  "dependencies": {
+    "joagger": "^0.1.2"
+  },
+  "name": "node101",
+  "version": "1.0.0",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "alya.ali",
+  "license": "ISC",
+  "description": "",
+  "devDependencies": {
+    "@types/node": "^18.13.0"
+  }
+}
