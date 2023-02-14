@@ -19,7 +19,11 @@ enum CarColorsList{
     
 }
 
-class Car {
+interface moveable{
+    move()
+}
+
+class Car implements moveable {
     constructor(public color: CarColorsList){
         console.log(this.color)
     }
@@ -30,19 +34,19 @@ class Car {
     
 }
 
-class ship {
+class ship implements moveable {
     move() {
         console.log("the ship sail in water")
     }
 }
 
 class person {
-    constructor(private name:string, private m:Car) {
+    constructor(private name:string, private Machine:Car) {
  
         }
         travel() {
             console.log(`${this.name} start travelling`)
-            this.m.move
+            this.Machine.move
         }
 
     }
@@ -51,3 +55,49 @@ let ahmed = new person("ahmed",new Car(CarColorsList.green))
 ahmed.travel()
 let BMW = new Car(CarColorsList.red)
 BMW.move()
+//payment methods 
+interface pay{
+    pay(amount: number)
+}
+
+class MasterCard {
+
+    pay(amount: number){
+        console.log("will pay" + this.calcfees(amount) + " using masterCard")
+    }
+
+    private calcfees(amount:number){
+        return (amount * 5/100)+amount;
+    }
+
+}
+
+class Visa {
+    pay(amount: number){
+        console.log("will pay " + this.calcfees(amount) + " using Visa")
+    }
+    private calcfees(amount:number){
+        return (amount * 1/100)+amount;
+    }
+    
+}
+
+class PayPal {
+    pay(amount: number){
+        console.log("will pay" + this.calcfees(amount) + " using PyPal")
+    }
+    private calcfees(amount:number){
+        return (amount * 0.5/100)+amount;
+    }
+}
+
+class User {
+
+    PayByInvoice(paymentmethod){
+        paymentmethod.pay(100);
+    }
+}
+
+new User().PayByInvoice(new MasterCard())
+new User().PayByInvoice(new Visa())
+new User().PayByInvoice(new PayPal())
