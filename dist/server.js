@@ -1,11 +1,12 @@
 "use strict";
+var __importDefault = (this && this.__importDefault) || function (mod) {
+    return (mod && mod.__esModule) ? mod : { "default": mod };
+};
 Object.defineProperty(exports, "__esModule", { value: true });
-const user_1 = require("./user");
-const math_1 = require("./math");
-let ahmed = new user_1.User("ahmed");
-console.log(ahmed.name);
-let calc = new math_1.Math(5);
-console.log(calc.sum(5));
-console.log(calc.sub(20));
-console.log(calc.mult(10));
-console.log(calc.div(8));
+// we install express (npm i express)
+const express_1 = __importDefault(require("express"));
+const app = (0, express_1.default)();
+app.get("/", function (req, res) {
+    // res.sendFile(join(__dirname,'..','html','index.html'));
+});
+app.listen(6000);
